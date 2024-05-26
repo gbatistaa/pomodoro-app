@@ -1,0 +1,17 @@
+section.pomoNav {
+  background-color: #161932;
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  width: 240px;
+  border-radius: 30px;
+}
+
+div.pomoStages {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
