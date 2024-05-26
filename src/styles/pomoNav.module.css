@@ -1,10 +1,13 @@
 section.pomoNav {
-  background-color: #161932;
-  display: flex;
-  justify-content: space-between;
   height: 45px;
   width: 240px;
+  padding: 5px;
   border-radius: 30px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  color: #979797;
+  background-color: #161932;
 }
 
 div.pomoStages {
@@ -14,4 +17,14 @@ div.pomoStages {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+div.pomoStages:nth-child(1) {
+  background-color: red;
+  border-radius: 30px;
+  color: #161932;
+}
+
+div.pomoStages h5 {
+  font-size: 0.7rem;
 }
