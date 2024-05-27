@@ -1,11 +1,41 @@
-export default function TimeSettings(style) {
+import styles from "../css/timeSettings.module.css";
+import increment from "../../../assets/icon-arrow-up.svg";
+import decrement from "../../../assets/icon-arrow-down.svg";
+
+const pomoStageNames = ["pomodoro", "short-break", "long-break"];
+
+function TimeInputs({ stageNames }) {
+  return stageNames.map((name, key) => {
+    return (
+      <div className={styles.labelContainer}>
+        <h5 className={styles.stageName}>{name}</h5>
+        <label htmlFor={name} className={styles.inputLabel} key={key}>
+          <div className={styles.buttonContainer}>
+            <button type="button" className={styles.increment}>
+              <img src={increment} alt="arrow-up" />
+            </button>
+            <button type="button" className={styles.decrement}>
+              <img src={decrement} alt="arrow-down" />
+            </button>
+          </div>
+          <input
+            type="number"
+            name={name}
+            className={styles.timeInput}
+            id={name}
+          />
+        </label>
+      </div>
+    );
+  });
+}
+
+export default function TimeSettings() {
   return (
-    <section className={style.timeSettings}>
-      <h3 className="">TIME (MINUTES)</h3>
-      <div className={style.durationSettings}>
-        <input type="number" name="pomodoro" />
-        <input type="number" name="short-break" />
-        <input type="number" name="long-break" />
+    <section className={styles.timeSettings}>
+      <h4 className={styles.timeTitle}>TIME (MINUTES)</h4>
+      <div className={styles.durationSettings}>
+        <TimeInputs stageNames={pomoStageNames} />
       </div>
     </section>
   );
