@@ -1,5 +1,5 @@
-import styles from "../../styles/pomoConfig.module.css";
-import settings from "../../assets/icon-settings.svg";
+import styles from "../../../styles/pomoConfig.module.css";
+import settings from "../../../assets/icon-settings.svg";
 import Header from "./Header";
 import TimeSettings from "./TimeSettings";
 import FontSettings from "./FontSettings";
@@ -8,11 +8,11 @@ import ColorSettings from "./ColorSettings";
 function ConfigMenu() {
   return (
     <div className={styles.configMenu}>
+      <Header />
       <main className={styles}>
-        <Header style={styles} />
-        <TimeSettings style={styles} />
-        <FontSettings style={styles} />
-        <ColorSettings style={styles} />
+        <TimeSettings />
+        <FontSettings />
+        <ColorSettings />
       </main>
     </div>
   );
