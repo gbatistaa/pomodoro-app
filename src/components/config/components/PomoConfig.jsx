@@ -9,7 +9,7 @@ function ConfigMenu() {
   return (
     <div className={styles.configMenu}>
       <Header />
-      <main className={styles}>
+      <main className={styles.configMain}>
         <TimeSettings />
         <FontSettings />
         <ColorSettings />
