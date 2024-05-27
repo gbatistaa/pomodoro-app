@@ -5,9 +5,10 @@
 }
 
 div.pomoClock {
-  width: 30vw;
-  height: 30vw;
+  width: 27vw;
+  height: 27vw;
   border-radius: 50%;
+  margin-bottom: 2rem;
   background-color: #161932;
   display: flex;
   flex-direction: column;
@@ -17,7 +18,7 @@ div.pomoClock {
 
 h1.pomoTime {
   color: #d7e0ff;
-  font-size: 5rem;
+  font-size: 4.5rem;
   margin: 0;
 }
 
@@ -25,8 +26,13 @@ button.pauseButton {
   border: none;
   cursor: pointer;
   background-color: transparent;
-}
-
-h3.stageTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #d7e0ff;
+  margin: 5% 0 0 0.8rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.8rem;
+  text-align: left;
+  font-weight: 600;
 }
