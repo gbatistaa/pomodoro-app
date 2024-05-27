@@ -1,0 +1,16 @@
+header.settingsHeader {
+  height: 25%;
+  width: 100%;
+  border-radius: 1.7rem 1.7rem 0 0;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 2px #eff1fa;
+}
+
+button.closeButton {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
