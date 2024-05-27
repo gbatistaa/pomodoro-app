@@ -1,0 +1,74 @@
+section.timeSettings {
+  letter-spacing: 0.4rem;
+  border-bottom: #1f21401a 2px solid;
+}
+
+section.timeSettings>* {
+  margin-bottom: 5%;
+}
+
+h4.timeTitle {
+  margin: 5% 0%;
+  color: #161932;
+}
+
+div.durationSettings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.labelContainer {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+h5.stageName {
+  margin: 0 0 0.4rem 0;
+  letter-spacing: normal;
+  color: #1e213f40;
+}
+
+label.inputLabel {
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  background-color: #eff1fa;
+}
+
+
+
+input.timeInput {
+  height: 100%;
+  width: 75%;
+  border-radius: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #1e213f;
+  font-weight: 800;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+div.buttonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+button.decrement,
+button.increment {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
