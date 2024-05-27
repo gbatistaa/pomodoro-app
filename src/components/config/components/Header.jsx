@@ -1,6 +1,7 @@
-import close from "../../assets/icon-close.svg";
+import close from "../../../assets/icon-close.svg";
+import styles from "../css/header.module.css";
 
-export default function Header(styles) {
+export default function Header() {
   return (
     <header className={styles.settingsHeader}>
       <h1 className={styles.settingsTitle}>Settings</h1>
