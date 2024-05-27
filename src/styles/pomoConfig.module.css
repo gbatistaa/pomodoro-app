@@ -17,8 +17,3 @@ main {
   height: 75%;
   padding: 0 1.7rem;
 }
-
-main:nth-child(1),
-main:nth-child(2) {
-  border-bottom: solid 2px #eff1fa;
-}
