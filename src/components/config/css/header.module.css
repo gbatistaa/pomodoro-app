@@ -6,7 +6,7 @@ header.settingsHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 2px #eff1fa;
+  border-bottom: solid 2px #1f21401a;
 }
 
 button.closeButton {
