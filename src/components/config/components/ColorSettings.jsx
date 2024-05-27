@@ -1,6 +1,8 @@
-export default function ColorSettings(style) {
+import styles from "../css/colorSettings.module.css";
+
+export default function ColorSettings() {
   return (
-    <section className={style.colorSettings}>
+    <section className={styles.colorSettings}>
       <h3>COLOR</h3>
       <div className="">
         <label htmlFor="red">
