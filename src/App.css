@@ -1,20 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
 
+* {
+  font-family: 'Kumbh Sans';
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
 .App {
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
-  text-decoration: none;
-  box-sizing: border-box;
   background-color: #1e213f;
   display: flex;
   flex-direction: column;
-  font-family: 'Kumbh Sans';
   align-items: center;
-  text-align: center;
+  justify-content: center;
 }
 
-h3.app-title {
+h2.app-title {
   color: #d7e0ff;
 }
