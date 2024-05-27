@@ -1,6 +1,8 @@
-export default function FontSettings(style) {
+import styles from "../css/fontSettings.module.css";
+
+export default function FontSettings() {
   return (
-    <section className={style.fontSettings}>
+    <section className={styles.fontSettings}>
       <h3 className="">FONT</h3>
       <div>
         <label htmlFor="kumbh" className="">
