@@ -1,0 +1,68 @@
+section.colorSettings {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.colorSettings>* {
+  margin: 4% 0;
+}
+
+label.colorLabel {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+label.colorLabel::after {
+  content: '';
+  height: 2.4rem;
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  z-index: -1;
+  border: solid 2px;
+  transition: ease-out 0.15s;
+}
+
+label.colorLabel:nth-child(1):after {
+  border-color: #f87070;
+}
+
+label.colorLabel:nth-child(2):after {
+  border-color: #70f3f8;
+}
+
+label.colorLabel:nth-child(3):after {
+  border-color: #d881f8;
+}
+
+label.colorLabel:hover::after {
+  height: 2.8rem;
+}
+
+label.colorLabel input[type="radio"] {
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+
+h4.stageName {
+  margin: 5% 0;
+  width: fit-content;
+  letter-spacing: 0.35rem;
+  color: #161932;
+}
+
+div.inputsContainer {
+  height: 2.5rem;
+  width: 33%;
+  display: flex;
+  justify-content: space-between;
+}

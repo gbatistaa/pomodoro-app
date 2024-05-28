@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
 
-* {
-  font-family: 'Kumbh Sans';
-}
-
 div.pomoClock {
   width: 27vw;
   height: 27vw;
@@ -14,6 +10,7 @@ div.pomoClock {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Kumbh Sans';
 }
 
 h1.pomoTime {

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+section.fontSettings {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #1f21401a 2px solid;
+}
+
+section.fontSettings>* {
+  margin: 4% 0;
+}
+
+h4.stageName {
+  margin: 5% 0;
+  width: fit-content;
+  letter-spacing: 0.35rem;
+  color: #161932;
+}
+
+div.inputsContainer {
+  height: 2.5rem;
+  width: 33%;
+  display: flex;
+  justify-content: space-between;
+}
+
+label.inputLabel {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 600;
+  color: #16193299;
+  background-color: #eff1fa;
+}
+
+label.inputLabel::after {
+  content: '';
+  height: 2.4rem;
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  z-index: -1;
+  border: #eff1fa solid 2px;
+  transition: ease-out 0.15s;
+}
+
+label.inputLabel:hover::after {
+  height: 2.8rem;
+}
+
+label.inputLabel input[type="radio"] {
+  height: 0;
+  width: 0;
+  position: absolute;
+}
