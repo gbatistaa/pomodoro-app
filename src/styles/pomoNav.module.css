@@ -1,6 +1,6 @@
 section.pomoNav {
   height: 45px;
-  width: 240px;
+  width: 300px;
   padding: 5px;
   border-radius: 30px;
   margin-bottom: 1rem;
@@ -26,5 +26,5 @@ div.pomoStages:nth-child(1) {
 }
 
 div.pomoStages h5 {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
