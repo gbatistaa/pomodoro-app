@@ -4,11 +4,15 @@ import Header from "./Header";
 import TimeSettings from "./TimeSettings";
 import FontSettings from "./FontSettings";
 import ColorSettings from "./ColorSettings";
-import { useState } from "react";
+import { useState, createContext, useContext } from "react";
 
-function ConfigMenu({ display }) {
+export const DisplayContext = createContext();
+
+function ConfigMenu() {
+  const { displayConfig } = useContext(DisplayContext);
+
   return (
-    <div className={`${styles.configMenu} ${display ? "" : styles.none}`}>
+    <div className={`${styles.configMenu} ${displayConfig ? "" : styles.none}`}>
       <Header />
       <main className={styles.configMain}>
         <TimeSettings />
@@ -35,7 +39,10 @@ export default function PomoConfig() {
       >
         <img src={settings} alt="config" />
       </button>
-      <ConfigMenu display={displayConfig} />
+
+      <DisplayContext.Provider value={{ displayConfig, setDisplayConfig }}>
+        <ConfigMenu />
+      </DisplayContext.Provider>
     </>
   );
 }
