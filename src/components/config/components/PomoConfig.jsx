@@ -1,5 +1,5 @@
 import styles from "../../../styles/pomoConfig.module.css";
-import settings from "../../../assets/icon-settings.svg";
+import settings from "../../../assets/./images/icon-settings.svg";
 import Header from "./Header";
 import TimeSettings from "./TimeSettings";
 import FontSettings from "./FontSettings";
