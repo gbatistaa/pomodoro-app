@@ -1,6 +1,6 @@
 import styles from "../css/timeSettings.module.css";
-import increment from "../../../assets/icon-arrow-up.svg";
-import decrement from "../../../assets/icon-arrow-down.svg";
+import increment from "../../../assets/./images/icon-arrow-up.svg";
+import decrement from "../../../assets/./images/icon-arrow-down.svg";
 
 const pomoStageNames = ["pomodoro", "short-break", "long-break"];
 
