@@ -1,19 +1,19 @@
 import styles from "../css/colorSettings.module.css";
+import RadioInput from "./RadioInput";
+
+const colors = ["#f87070", "#70f3f8", "#d881f8"];
 
 export default function ColorSettings() {
   return (
     <section className={styles.colorSettings}>
-      <h3>COLOR</h3>
-      <div className="">
-        <label htmlFor="red">
-          <input type="radio" name="color" id="red" value="#f87070" />
-        </label>
-        <label htmlFor="cyan">
-          <input type="radio" name="color" id="cyan" value="#70f2f8" />
-        </label>
-        <label htmlFor="pink">
-          <input type="radio" name="color" id="pink" value="#d881f8" />
-        </label>
+      <h4 className={styles.stageName}>COLOR</h4>
+      <div className={styles.inputsContainer}>
+        <RadioInput
+          array={colors}
+          name={`color`}
+          style={styles.colorLabel}
+          text={``}
+        />
       </div>
     </section>
   );
