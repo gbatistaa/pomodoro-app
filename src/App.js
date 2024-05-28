@@ -6,7 +6,7 @@ import PomoConfig from "./components/config/components/PomoConfig";
 function App() {
   return (
     <div className="App">
-      <h2 className="app-title">pomodoro</h2>
+      <h1 className="app-title">pomodoro</h1>
       <PomoNav />
       <PomoClock />
       <PomoConfig />
