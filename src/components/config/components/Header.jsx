@@ -1,4 +1,4 @@
-import close from "../../../assets/icon-close.svg";
+import close from "../../../assets/./images/icon-close.svg";
 import styles from "../css/header.module.css";
 
 export default function Header() {
