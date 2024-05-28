@@ -17,6 +17,10 @@ div.configMenu {
   font-family: 'Kumbh Sans';
 }
 
+div.none {
+  display: none;
+}
+
 main.configMain {
   height: 80%;
   padding: 0 1.7rem;
