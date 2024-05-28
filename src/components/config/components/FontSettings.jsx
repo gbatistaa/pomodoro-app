@@ -1,23 +1,19 @@
 import styles from "../css/fontSettings.module.css";
+import RadioInput from "./RadioInput";
 
 const fontsArray = ["kumbh", "roboto", "space"];
-
-function FontInput({ fonts }) {
-  return fonts.map((font, key) => {
-    return (
-      <label htmlFor={font} key={key} className={styles.inputLabel}>
-        <input type="radio" name="font" value={font} />
-      </label>
-    );
-  });
-}
 
 export default function FontSettings() {
   return (
     <section className={styles.fontSettings}>
-      <h3 className="">FONT</h3>
-      <div>
-        <FontInput fonts={fontsArray} />
+      <h4 className={styles.stageName}>FONT</h4>
+      <div className={styles.inputsContainer}>
+        <RadioInput
+          array={fontsArray}
+          name={`font`}
+          style={styles.inputLabel}
+          text={`Aa`}
+        />
       </div>
     </section>
   );
