@@ -13,14 +13,14 @@ section.pomoNav {
 div.pomoStages {
   height: 100%;
   width: 33%;
+  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-div.pomoStages:nth-child(1) {
-  background-color: red;
+div.pomoStages.selected {
   border-radius: 30px;
   color: #161932;
 }
