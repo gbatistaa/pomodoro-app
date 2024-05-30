@@ -31,20 +31,29 @@ label.colorLabel::after {
   transition: ease-out 0.15s;
 }
 
-label.colorLabel:nth-child(1):after {
+label.colorLabel:nth-child(1)::after {
   border-color: #f87070;
 }
 
-label.colorLabel:nth-child(2):after {
+label.colorLabel:nth-child(2)::after {
   border-color: #70f3f8;
 }
 
-label.colorLabel:nth-child(3):after {
+label.colorLabel:nth-child(3)::after {
   border-color: #d881f8;
 }
 
 label.colorLabel:hover::after {
   height: 2.8rem;
+  color: rgb(22, 25, 50);
+}
+
+label.colorLabel img {
+  height: 50%;
+}
+
+label.notSelected img.check {
+  display: none;
 }
 
 label.colorLabel input[type="radio"] {
