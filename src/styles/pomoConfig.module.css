@@ -9,7 +9,7 @@ button.configButton {
 
 div.configMenu {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   height: 60%;
   width: 38%;
   border-radius: 1.7rem;
