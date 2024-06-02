@@ -1,44 +1,13 @@
 import styles from "../css/timeSettings.module.css";
 import increment from "../../../assets/./images/icon-arrow-up.svg";
 import decrement from "../../../assets/./images/icon-arrow-down.svg";
-import { useReducer } from "react";
+import { useContext } from "react";
+import { TimeSettingsContext } from "../../../App.js";
 
 const pomoStageNames = ["pomodoro", "shortBreak", "longBreak"];
 
 function TimeInputs({ stageNames }) {
-  const initialTimeState = {
-    pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 10,
-  };
-
-  const reducer = (state, { type, increase }) => {
-    switch (type) {
-      case "set-pomodoro":
-        console.log(state);
-        return {
-          ...state,
-          pomodoro: increase ? state.pomodoro + 1 : state.pomodoro - 1,
-        };
-
-      case "set-shortBreak":
-        return {
-          ...state,
-          shortBreak: increase ? state.shortBreak + 1 : state.shortBreak - 1,
-        };
-
-      case "set-longBreak":
-        return {
-          ...state,
-          longBreak: increase ? state.longBreak + 1 : state.longBreak - 1,
-        };
-
-      default:
-        break;
-    }
-  };
-
-  const [timeStates, dispatch] = useReducer(reducer, initialTimeState);
+  const { timeStates, dispatch } = useContext(TimeSettingsContext);
 
   const handleTimeIncrease = (event, timeName, currentValue) => {
     event.preventDefault();
