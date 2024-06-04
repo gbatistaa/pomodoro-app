@@ -25,35 +25,32 @@ const usePomodoro = (
   isActive,
   setMin,
   setSec,
-  setStage,
-  currStage,
+  currStageRef,
   seconds,
   minutes,
   timeSettings,
-  pomosCompletedForLong,
-  totalPomos
+  pomosCompletedForLong
 ) => {
-  // if the stage is "POMODORO" the stagesCounter will be odd:
-
   let pomosCompleted = useRef(0);
   let stagesCounter = useRef(1);
   let isShortBreak = useRef(true);
+
   useMyHook(() => {
     if (isActive) {
-      setSec((min) => min - 1);
+      setSec((sec) => sec - 1);
       if (seconds === 0) {
         setMin((min) => min - 1);
         setSec(59);
       }
 
       if (minutes === 0 && seconds === 0) {
-        //Condition that is triggred at the end of a stage:
+        // Condition that is triggered at the end of a stage
 
         if (stagesCounter.current % 2 !== 0) {
           // condition meaning: if the currentStage is pomodoro
           pomosCompleted.current += 1;
 
-          // condition meaning: if is longBreak in the short/long intercalation:
+          // condition meaning: if is longBreak in the short/long intercalation
           if (pomosCompleted.current % pomosCompletedForLong === 0) {
             isShortBreak.current = false;
           } else {
@@ -66,47 +63,44 @@ const usePomodoro = (
         resetTimeForNewStage(
           setMin,
           setSec,
-          currStage,
-          setStage,
+          currStageRef,
           timeSettings,
           isShortBreak.current
         );
       }
     }
-  }, 1000);
+  }, 2);
 };
 
-// function that resets the temporizer and, simuntaniously, the stage on the pomoNav:
-
+// Function that resets the temporizer and, simultaneously, the stage on the pomoNav
 const resetTimeForNewStage = (
   setMin,
   setSec,
-  currStageName,
-  setStage,
+  currStageRef,
   timeSettings,
   isShort
 ) => {
   setSec(0);
-  switch (currStageName) {
-    case "pomodoro":
-      setMin(timeSettings[`${isShort ? "shortBreak" : "longBreak"}`]);
-      if (isShort) setStage("shortBreak");
-      else setStage("longBreak");
-      break;
-
-    default:
-      setMin(timeSettings.pomodoro);
-      setStage("pomodoro");
-      break;
+  if (currStageRef.current === "pomodoro") {
+    if (isShort) {
+      setMin(timeSettings.shortBreak);
+      currStageRef.current = "shortBreak";
+    } else {
+      setMin(timeSettings.longBreak);
+      currStageRef.current = "longBreak";
+    }
+  } else {
+    setMin(timeSettings.pomodoro);
+    currStageRef.current = "pomodoro";
   }
 };
 
 export default function PomoClock() {
   const { globalColor } = useContext(ColorContext);
-  const { timeStates } = useContext(TimeSettingsContext);
-  const { pomoStage, setPomoStage } = useContext(PomoStageContext);
+  const { timeSettingsRef } = useContext(TimeSettingsContext);
+  const { pomoStageRef } = useContext(PomoStageContext);
 
-  const [minutes, setMinutes] = useState(parseInt(timeStates.pomodoro));
+  const [minutes, setMinutes] = useState(parseInt(timeSettingsRef.pomodoro));
   const [seconds, setSeconds] = useState(0);
   const [pomodoroActive, setPomodoroActive] = useState(false);
 
@@ -114,13 +108,11 @@ export default function PomoClock() {
     pomodoroActive,
     setMinutes,
     setSeconds,
-    setPomoStage,
-    pomoStage,
+    pomoStageRef,
     seconds,
     minutes,
-    timeStates,
-    3,
-    6
+    timeSettingsRef,
+    3
   );
 
   const handlePomodoroStartPause = () => {
@@ -138,7 +130,7 @@ export default function PomoClock() {
       <button
         type="button"
         className={styles.pauseButton}
-        onClick={() => handlePomodoroStartPause()}
+        onClick={handlePomodoroStartPause}
       >
         {pomodoroActive ? "PAUSE" : "START"}
       </button>
