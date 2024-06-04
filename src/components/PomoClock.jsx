@@ -69,7 +69,7 @@ const usePomodoro = (
         );
       }
     }
-  }, 2);
+  });
 };
 
 // Function that resets the temporizer and, simultaneously, the stage on the pomoNav
