@@ -1,25 +1,25 @@
 import styles from "../css/timeSettings.module.css";
 import increment from "../../../assets/./images/icon-arrow-up.svg";
 import decrement from "../../../assets/./images/icon-arrow-down.svg";
-import { useContext } from "react";
-import { TimeSettingsContext } from "../../../App.js";
+import { useState } from "react";
 
 const pomoStageNames = ["pomodoro", "shortBreak", "longBreak"];
 
-function TimeInputs({ stageNames }) {
-  const { timeStates, dispatch } = useContext(TimeSettingsContext);
-
-  const handleTimeIncrease = (event, timeName, currentValue) => {
+function TimeInputs({ stageNames, timeRef }) {
+  const [, setTimes] = useState(0);
+  const handleTimeIncrease = (event, currentValue, timeRef, name) => {
     event.preventDefault();
     if (currentValue < 60) {
-      dispatch({ type: `set-${timeName}`, increase: true });
+      timeRef[`${name}`] += 1;
+      setTimes((prev) => prev - 1);
     }
   };
 
-  const handleTimeDecrease = (event, timeName, currentValue) => {
+  const handleTimeDecrease = (event, currentValue, timeRef, name) => {
     event.preventDefault();
     if (currentValue > 0) {
-      dispatch({ type: `set-${timeName}`, increase: false });
+      timeRef[`${name}`] -= 1;
+      setTimes((prev) => prev - 1);
     }
   };
 
@@ -33,7 +33,7 @@ function TimeInputs({ stageNames }) {
             name={name}
             className={styles.timeInput}
             id={name}
-            value={timeStates[`${name}`]}
+            value={timeRef[`${name}`]}
             readOnly
           />
           <div className={styles.buttonContainer}>
@@ -41,7 +41,7 @@ function TimeInputs({ stageNames }) {
               type="button"
               className={styles.increment}
               onClick={(e) =>
-                handleTimeIncrease(e, name, timeStates[`${name}`])
+                handleTimeIncrease(e, timeRef[`${name}`], timeRef, name)
               }
             >
               <img src={increment} alt="arrow-up" />
@@ -50,7 +50,7 @@ function TimeInputs({ stageNames }) {
               type="button"
               className={styles.decrement}
               onClick={(e) =>
-                handleTimeDecrease(e, name, timeStates[`${name}`])
+                handleTimeDecrease(e, timeRef[`${name}`], timeRef, name)
               }
             >
               <img src={decrement} alt="arrow-down" />
@@ -62,12 +62,12 @@ function TimeInputs({ stageNames }) {
   });
 }
 
-export default function TimeSettings() {
+export default function TimeSettings({ timeRef }) {
   return (
     <section className={styles.timeSettings}>
       <h4 className={styles.timeTitle}>TIME (MINUTES)</h4>
       <div className={styles.durationSettings}>
-        <TimeInputs stageNames={pomoStageNames} />
+        <TimeInputs stageNames={pomoStageNames} timeRef={timeRef} />
       </div>
     </section>
   );
