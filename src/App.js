@@ -17,7 +17,7 @@ function App() {
     longBreak: 10,
   };
 
-  const globalColorRef = useRef("#f87070");
+  const globalColorRef = useRef("red");
   const fontRef = useRef("kumbh");
   const { current: timeSettingsRef } = useRef(initialTimeValues);
 
