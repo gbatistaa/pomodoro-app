@@ -4,30 +4,58 @@ import Header from "./Header";
 import TimeSettings from "./TimeSettings";
 import FontSettings from "./FontSettings";
 import ColorSettings from "./ColorSettings";
+import {
+  ColorContext,
+  FontContext,
+  TimeSettingsContext,
+  MinutesContext,
+} from "../../../App.js";
 import { useState, createContext, useContext, memo } from "react";
 
 export const DisplayContext = createContext();
 
 const MemoHeader = memo(Header);
-const MemoTimeSettings = memo(TimeSettings);
-const MemoFontSettings = memo(FontSettings);
 
-function ConfigMenu() {
+function ConfigMenu({ functions }) {
   const { displayConfig } = useContext(DisplayContext);
+  const globalColorRef = useContext(ColorContext);
+  const { timeSettingsRef } = useContext(TimeSettingsContext);
+  const { setMinutes } = useContext(MinutesContext);
+  const fontRef = useContext(FontContext);
+
+  const handleChangeSettings = (fns) => {
+    fns.reset((prev) => prev - 1);
+    fns.handleConfigDisplay();
+    setMinutes(timeSettingsRef.pomodoro);
+  };
 
   return (
     <div className={`${styles.configMenu} ${displayConfig ? "" : styles.none}`}>
       <MemoHeader />
-      <main className={styles.configMain}>
-        <MemoTimeSettings />
-        <MemoFontSettings />
+      <form
+        className={styles.configMain}
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleChangeSettings(functions);
+        }}
+      >
+        <TimeSettings timeRef={timeSettingsRef} />
+        <FontSettings fontRef={fontRef} />
         <ColorSettings />
-      </main>
+        <button
+          type="submit"
+          className={`${styles.applyButton} ${
+            styles[`${globalColorRef.current}`]
+          }`}
+        >
+          Apply
+        </button>
+      </form>
     </div>
   );
 }
 
-export default function PomoConfig() {
+export default function PomoConfig({ reset }) {
   const [displayConfig, setDisplayConfig] = useState(false);
 
   const handleConfigDisplay = () => {
@@ -45,7 +73,7 @@ export default function PomoConfig() {
       </button>
 
       <DisplayContext.Provider value={{ displayConfig, setDisplayConfig }}>
-        <ConfigMenu />
+        <ConfigMenu functions={{ reset, handleConfigDisplay }} />
       </DisplayContext.Provider>
     </>
   );
