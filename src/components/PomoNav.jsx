@@ -1,10 +1,12 @@
 import styles from "../styles/pomoNav.module.css";
 import { ColorContext, PomoStageContext } from "../App.js";
 import { useContext } from "react";
+import { colorTranslator } from "./config/components/ColorInput.jsx";
 
 export default function PomoNav() {
   const globalColor = useContext(ColorContext);
   const { pomoState } = useContext(PomoStageContext);
+  const color = globalColor.current;
 
   return (
     <section className={styles.pomoNav}>
@@ -14,7 +16,7 @@ export default function PomoNav() {
         }`}
         style={
           pomoState === "pomodoro"
-            ? { backgroundColor: globalColor.current }
+            ? { backgroundColor: colorTranslator(color) }
             : {}
         }
       >
@@ -26,7 +28,7 @@ export default function PomoNav() {
         }`}
         style={
           pomoState === "shortBreak"
-            ? { backgroundColor: globalColor.current }
+            ? { backgroundColor: colorTranslator(color) }
             : {}
         }
       >
@@ -38,7 +40,7 @@ export default function PomoNav() {
         }`}
         style={
           pomoState === "longBreak"
-            ? { backgroundColor: globalColor.current }
+            ? { backgroundColor: colorTranslator(color) }
             : {}
         }
       >
