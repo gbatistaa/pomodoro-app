@@ -3,6 +3,19 @@ import { ColorContext } from "../../../App";
 import check from "../../../assets/images/check-solid.svg";
 import styles from "../css/colorSettings.module.css";
 
+export const colorTranslator = (color) => {
+  switch (color) {
+    case "red":
+      return "#f87070";
+    case "blue":
+      return "#70f3f8";
+    case "pink":
+      return "#d881f8";
+    default:
+      return "";
+  }
+};
+
 export default function ColorInput({ array, name, forceUpdate }) {
   const globalColorRef = useContext(ColorContext);
 
@@ -21,7 +34,7 @@ export default function ColorInput({ array, name, forceUpdate }) {
             ? styles.selected
             : styles.notSelected
         }`}
-        style={{ backgroundColor: array[key] }}
+        style={{ backgroundColor: colorTranslator(color) }}
       >
         <img src={check} alt="check" className={styles.check} />
         <input
