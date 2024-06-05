@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "../css/colorSettings.module.css";
 import ColorInput from "./ColorInput.jsx";
 
-const colors = ["#f87070", "#70f3f8", "#d881f8"];
+const colors = ["red", "blue", "pink"];
 
 export default function ColorSettings() {
   const [, forceUpdate] = useState(0);
