@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className={`App ${fontRef.current}`}>
-      <h1 className="app-title">pomodoro</h1>
+      <h1 className="app-title">PomoStudy</h1>
       <MinutesContext.Provider value={{ minutes, setMinutes }}>
         <FontContext.Provider value={fontRef}>
           <TimeSettingsContext.Provider value={{ timeSettingsRef }}>
