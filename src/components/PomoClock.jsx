@@ -7,6 +7,8 @@ import {
   MinutesContext,
 } from "../App.js";
 
+import { colorTranslator } from "./config/components/ColorInput.jsx";
+
 const useMyHook = (callBack, delay = 1000) => {
   const savedCallBack = useRef();
 
@@ -76,7 +78,7 @@ const usePomodoro = (
         );
       }
     }
-  }, 2);
+  });
 };
 
 // Function that resets the temporizer and, simultaneously, the stage on the pomoNav
@@ -131,7 +133,7 @@ export default function PomoClock() {
   return (
     <div
       className={styles.pomoClock}
-      style={{ border: `10px solid ${globalColor.current}` }}
+      style={{ border: `10px solid ${colorTranslator(globalColor.current)}` }}
     >
       <h1 className={styles.pomoTime}>
         {numberFormator(minutes)}:{numberFormator(seconds)}
@@ -139,7 +141,7 @@ export default function PomoClock() {
       <button
         type="button"
         className={styles.pauseButton}
-        onClick={handlePomodoroStartPause}
+        onClick={() => handlePomodoroStartPause()}
       >
         {pomodoroActive ? "PAUSE" : "START"}
       </button>
