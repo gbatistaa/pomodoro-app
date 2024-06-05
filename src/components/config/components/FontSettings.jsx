@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import styles from "../css/fontSettings.module.css";
 
 const fontsArray = ["kumbh", "roboto", "space"];
