@@ -9,6 +9,7 @@ import {
   FontContext,
   TimeSettingsContext,
   MinutesContext,
+  ActiveContext,
 } from "../../../App.js";
 import { useState, createContext, useContext, memo } from "react";
 
@@ -18,15 +19,18 @@ const MemoHeader = memo(Header);
 
 function ConfigMenu({ functions }) {
   const { displayConfig } = useContext(DisplayContext);
-  const globalColorRef = useContext(ColorContext);
   const { timeSettingsRef } = useContext(TimeSettingsContext);
   const { setMinutes } = useContext(MinutesContext);
+  const { pomodoroActive } = useContext(ActiveContext);
   const fontRef = useContext(FontContext);
+  const globalColorRef = useContext(ColorContext);
 
   const handleChangeSettings = (fns) => {
     fns.reset((prev) => prev - 1);
     fns.handleConfigDisplay();
-    setMinutes(timeSettingsRef.pomodoro);
+    if (pomodoroActive) {
+      setMinutes(timeSettingsRef.pomodoro);
+    }
   };
 
   return (

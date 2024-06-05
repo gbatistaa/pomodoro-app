@@ -5,6 +5,7 @@ import {
   TimeSettingsContext,
   PomoStageContext,
   MinutesContext,
+  ActiveContext,
 } from "../App.js";
 
 import { colorTranslator } from "./config/components/ColorInput.jsx";
@@ -110,9 +111,9 @@ export default function PomoClock() {
   const { timeSettingsRef } = useContext(TimeSettingsContext);
   const { pomoState, setPomoState } = useContext(PomoStageContext);
   const { minutes, setMinutes } = useContext(MinutesContext);
+  const { pomodoroActive, setPomodoroActive } = useContext(ActiveContext);
 
   const [seconds, setSeconds] = useState(0);
-  const [pomodoroActive, setPomodoroActive] = useState(false);
 
   usePomodoro(
     pomodoroActive,
