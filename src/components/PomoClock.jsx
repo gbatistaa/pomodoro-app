@@ -1,6 +1,11 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import styles from "../styles/pomoClock.module.css";
-import { ColorContext, TimeSettingsContext, PomoStageContext } from "../App.js";
+import {
+  ColorContext,
+  TimeSettingsContext,
+  PomoStageContext,
+  MinutesContext,
+} from "../App.js";
 
 const useMyHook = (callBack, delay = 1000) => {
   const savedCallBack = useRef();
@@ -25,7 +30,8 @@ const usePomodoro = (
   isActive,
   setMin,
   setSec,
-  currStageRef,
+  currPomoState,
+  setPomoState,
   seconds,
   minutes,
   timeSettings,
@@ -63,44 +69,46 @@ const usePomodoro = (
         resetTimeForNewStage(
           setMin,
           setSec,
-          currStageRef,
+          currPomoState,
+          setPomoState,
           timeSettings,
           isShortBreak.current
         );
       }
     }
-  });
+  }, 2);
 };
 
 // Function that resets the temporizer and, simultaneously, the stage on the pomoNav
 const resetTimeForNewStage = (
   setMin,
   setSec,
-  currStageRef,
+  currPomoState,
+  setPomoState,
   timeSettings,
   isShort
 ) => {
   setSec(0);
-  if (currStageRef.current === "pomodoro") {
-    if (isShort) {
-      setMin(timeSettings.shortBreak);
-      currStageRef.current = "shortBreak";
-    } else {
-      setMin(timeSettings.longBreak);
-      currStageRef.current = "longBreak";
-    }
-  } else {
-    setMin(timeSettings.pomodoro);
-    currStageRef.current = "pomodoro";
+  const booleanAlternate = isShort ? "shortBreak" : "longBreak";
+  switch (currPomoState) {
+    case "pomodoro":
+      setMin(timeSettings[`${booleanAlternate}`]);
+      setPomoState(booleanAlternate);
+      break;
+
+    default:
+      setMin(timeSettings.pomodoro);
+      setPomoState("pomodoro");
+      break;
   }
 };
 
 export default function PomoClock() {
-  const { globalColor } = useContext(ColorContext);
+  const globalColor = useContext(ColorContext);
   const { timeSettingsRef } = useContext(TimeSettingsContext);
-  const { pomoStageRef } = useContext(PomoStageContext);
+  const { pomoState, setPomoState } = useContext(PomoStageContext);
+  const { minutes, setMinutes } = useContext(MinutesContext);
 
-  const [minutes, setMinutes] = useState(parseInt(timeSettingsRef.pomodoro));
   const [seconds, setSeconds] = useState(0);
   const [pomodoroActive, setPomodoroActive] = useState(false);
 
@@ -108,7 +116,8 @@ export default function PomoClock() {
     pomodoroActive,
     setMinutes,
     setSeconds,
-    pomoStageRef,
+    pomoState,
+    setPomoState,
     seconds,
     minutes,
     timeSettingsRef,
@@ -122,7 +131,7 @@ export default function PomoClock() {
   return (
     <div
       className={styles.pomoClock}
-      style={{ border: `10px solid ${globalColor}` }}
+      style={{ border: `10px solid ${globalColor.current}` }}
     >
       <h1 className={styles.pomoTime}>
         {numberFormator(minutes)}:{numberFormator(seconds)}
