@@ -3,19 +3,23 @@ import { ColorContext } from "../../../App";
 import check from "../../../assets/images/check-solid.svg";
 import styles from "../css/colorSettings.module.css";
 
-export default function ColorInput({ array, name }) {
-  const { globalColor, setGlobalColor } = useContext(ColorContext);
+export default function ColorInput({ array, name, forceUpdate }) {
+  const globalColorRef = useContext(ColorContext);
 
-  const handleColorChange = (newColor) => {
-    setGlobalColor(newColor);
-  };
   return array.map((color, key) => {
+    const handleColorChange = (event, ref) => {
+      const { value } = event.target;
+      ref.current = value;
+      forceUpdate((prev) => prev - 1);
+    };
     return (
       <label
         htmlFor={color}
         key={key}
         className={`${styles.colorLabel} ${
-          color === globalColor ? styles.selected : styles.notSelected
+          color === globalColorRef.current
+            ? styles.selected
+            : styles.notSelected
         }`}
         style={{ backgroundColor: array[key] }}
       >
@@ -25,7 +29,7 @@ export default function ColorInput({ array, name }) {
           name={name}
           value={color}
           id={color}
-          onChange={() => handleColorChange(color)}
+          onChange={(e) => handleColorChange(e, globalColorRef)}
         />
       </label>
     );
