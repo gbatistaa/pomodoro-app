@@ -3,35 +3,43 @@ import { ColorContext, PomoStageContext } from "../App.js";
 import { useContext } from "react";
 
 export default function PomoNav() {
-  const { globalColor } = useContext(ColorContext);
-  const { pomoStage } = useContext(PomoStageContext);
+  const globalColor = useContext(ColorContext);
+  const { pomoState } = useContext(PomoStageContext);
 
   return (
     <section className={styles.pomoNav}>
       <div
         className={`${styles.pomoStages} ${
-          pomoStage === "pomodoro" ? styles.selected : ""
+          pomoState === "pomodoro" ? styles.selected : ""
         }`}
-        style={pomoStage === "pomodoro" ? { backgroundColor: globalColor } : {}}
+        style={
+          pomoState === "pomodoro"
+            ? { backgroundColor: globalColor.current }
+            : {}
+        }
       >
         <h5>pomodoro</h5>
       </div>
       <div
         className={`${styles.pomoStages} ${
-          pomoStage === "shortBreak" ? styles.selected : ""
+          pomoState === "shortBreak" ? styles.selected : ""
         }`}
         style={
-          pomoStage === "shortBreak" ? { backgroundColor: globalColor } : {}
+          pomoState === "shortBreak"
+            ? { backgroundColor: globalColor.current }
+            : {}
         }
       >
         <h5>short break</h5>
       </div>
       <div
         className={`${styles.pomoStages} ${
-          pomoStage === "longBreak" ? styles.selected : ""
+          pomoState === "longBreak" ? styles.selected : ""
         }`}
         style={
-          pomoStage === "longBreak" ? { backgroundColor: globalColor } : {}
+          pomoState === "longBreak"
+            ? { backgroundColor: globalColor.current }
+            : {}
         }
       >
         <h5>long break</h5>
