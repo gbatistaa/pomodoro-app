@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
-
-
 button.configButton {
   border: none;
   cursor: pointer;
@@ -14,14 +11,55 @@ div.configMenu {
   width: 38%;
   border-radius: 1.7rem;
   background-color: #ffffff;
-  font-family: 'Kumbh Sans';
 }
 
 div.none {
   display: none;
 }
 
-main.configMain {
+form.configMain {
   height: 80%;
   padding: 0 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button.applyButton {
+  border: none;
+  border-radius: 35px;
+  height: 45px;
+  width: 140px;
+  position: absolute;
+  top: 94.8%;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: ease-out 0.15s;
+}
+
+button.applyButton.red {
+  background-color: #f87070;
+}
+
+button.applyButton.red:hover {
+  background-color: #f98888;
+}
+
+button.applyButton.blue {
+  background-color: #70f2f8;
+  color: #161932;
+}
+
+button.applyButton.blue:hover {
+  background-color: #abfafe;
+}
+
+button.applyButton.pink {
+  background-color: #d881f8;
+}
+
+button.applyButton.pink:hover {
+  background-color: #da92f7;
 }
