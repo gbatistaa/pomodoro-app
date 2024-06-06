@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import styles from "../styles/pomoClock.module.css";
 import {
   ColorContext,
