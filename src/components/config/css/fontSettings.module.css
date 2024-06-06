@@ -81,3 +81,13 @@ label.inputLabel.labelSelected {
 label.inputLabel.labelSelected::after {
   border: none
 }
+
+@media screen and (max-width: 480px) {
+  div.inputsContainer {
+    width: 42%;
+  }
+
+  label.inputLabel {
+    height: 95%;
+  }
+}

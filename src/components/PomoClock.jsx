@@ -136,9 +136,9 @@ export default function PomoClock() {
       className={styles.pomoClock}
       style={{ border: `10px solid ${colorTranslator(globalColor.current)}` }}
     >
-      <h1 className={styles.pomoTime}>
+      <p className={styles.pomoTime}>
         {numberFormator(minutes)}:{numberFormator(seconds)}
-      </h1>
+      </p>
       <button
         type="button"
         className={styles.pauseButton}

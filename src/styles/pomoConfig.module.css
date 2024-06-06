@@ -6,7 +6,7 @@ button.configButton {
 
 div.configMenu {
   position: absolute;
-  z-index: 3;
+  z-index: 6;
   height: 60%;
   width: 38%;
   border-radius: 1.7rem;
@@ -62,4 +62,29 @@ button.applyButton.pink {
 
 button.applyButton.pink:hover {
   background-color: #da92f7;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+@media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
+    div.configMenu {
+      height: 50%;
+      width: 90%;
+      z-index: 11;
+      box-sizing: border-box;
+      position: fixed;
+    }
+
+
+  }
+
 }

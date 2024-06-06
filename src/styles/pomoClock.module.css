@@ -8,6 +8,7 @@ div.pomoClock {
   justify-content: center;
   align-items: center;
   background-color: #161932;
+  font-size: 1em;
 }
 
 div.pomoClock::before {
@@ -29,10 +30,10 @@ div.pomoClock::after {
   z-index: 0;
 }
 
-h1.pomoTime {
-  position: absolute;
+p.pomoTime {
   color: #d7e0ff;
-  font-size: 700%;
+  font-size: 5.8rem;
+  font-weight: 700;
   margin: 0;
   z-index: 2;
 }
@@ -57,4 +58,23 @@ button.pauseButton {
 
 button.pauseButton:hover {
   font-size: 1.28rem;
+}
+
+@media screen and (max-width: 480px) {
+  div.pomoClock {
+    width: 75%;
+    font-size: 0.9em;
+  }
+
+  div.pomoClock::before {
+    width: 84%;
+  }
+
+  button.pauseButton {
+    margin: 40% 0 0 0.7%;
+  }
+
+  p.pomoTime {
+    font-size: 6em;
+  }
 }

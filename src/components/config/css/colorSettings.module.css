@@ -45,7 +45,6 @@ label.colorLabel:nth-child(3)::after {
 
 label.colorLabel:hover::after {
   height: 2.8rem;
-  color: rgb(22, 25, 50);
 }
 
 label.colorLabel img {
@@ -74,4 +73,18 @@ div.inputsContainer {
   width: 33%;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+  div.inputsContainer {
+    width: 42%;
+  }
+
+  label.colorLabel {
+    height: 95%;
+  }
+
+  label.colorLabel::after {
+    display: none;
+  }
 }

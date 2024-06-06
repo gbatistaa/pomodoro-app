@@ -81,6 +81,7 @@ export default function PomoConfig({ reset }) {
       </button>
 
       <DisplayContext.Provider value={{ displayConfig, setDisplayConfig }}>
+        {displayConfig && <div className={styles.overlay}></div>}
         <ConfigMenu functions={{ reset, handleConfigDisplay }} />
       </DisplayContext.Provider>
     </>
