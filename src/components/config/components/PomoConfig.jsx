@@ -10,6 +10,7 @@ import {
   TimeSettingsContext,
   MinutesContext,
   ActiveContext,
+  SecondsContext,
 } from "../../../App.js";
 import { useState, createContext, useContext, memo } from "react";
 
@@ -21,15 +22,18 @@ function ConfigMenu({ functions }) {
   const { displayConfig } = useContext(DisplayContext);
   const { timeSettingsRef } = useContext(TimeSettingsContext);
   const { setMinutes } = useContext(MinutesContext);
-  const { pomodoroActive } = useContext(ActiveContext);
+  const { setSeconds } = useContext(SecondsContext);
+  const { pomodoroActive, setPomodoroActive } = useContext(ActiveContext);
   const fontRef = useContext(FontContext);
   const globalColorRef = useContext(ColorContext);
 
   const handleChangeSettings = (fns) => {
-    fns.reset((prev) => prev - 1);
+    setMinutes(timeSettingsRef.pomodoro);
     fns.handleConfigDisplay();
+    fns.reset((prev) => prev - 1);
     if (pomodoroActive) {
-      setMinutes(timeSettingsRef.pomodoro);
+      setSeconds(0);
+      setPomodoroActive(false);
     }
   };
 
