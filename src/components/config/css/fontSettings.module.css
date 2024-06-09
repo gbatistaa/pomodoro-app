@@ -90,4 +90,8 @@ label.inputLabel.labelSelected::after {
   label.inputLabel {
     height: 95%;
   }
+
+  label.inputLabel::after {
+    display: none;
+  }
 }
