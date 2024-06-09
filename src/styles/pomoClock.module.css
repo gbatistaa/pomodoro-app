@@ -1,5 +1,5 @@
 div.pomoClock {
-  width: 25%;
+  height: 50%;
   aspect-ratio: 1/1;
   border-radius: 50%;
   margin: 3rem 0;
@@ -15,7 +15,7 @@ div.pomoClock::before {
   position: absolute;
   z-index: -1;
   content: '';
-  width: 28%;
+  height: 56%;
   aspect-ratio: 1/1;
   border-radius: 50%;
   background: linear-gradient(135deg, #0E112A, #2E325A);
@@ -23,7 +23,7 @@ div.pomoClock::before {
 
 div.pomoClock::after {
   content: '';
-  width: 22%;
+  height: 44%;
   aspect-ratio: 1/1;
   border-radius: 50%;
   position: absolute;
@@ -47,7 +47,7 @@ button.pauseButton {
   align-items: center;
   position: absolute;
   color: #d7e0ff;
-  margin: 13% 0 0 0.7%;
+  margin: 200px 0 0 0.7%;
   z-index: 3;
   font-size: 1.2rem;
   letter-spacing: 0.8rem;
@@ -62,12 +62,12 @@ button.pauseButton:hover {
 
 @media screen and (max-width: 480px) {
   div.pomoClock {
-    width: 75%;
+    height: 38%;
     font-size: 0.9em;
   }
 
   div.pomoClock::before {
-    width: 84%;
+    height: 42.56%;
   }
 
   button.pauseButton {
