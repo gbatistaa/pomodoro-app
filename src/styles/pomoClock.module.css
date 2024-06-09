@@ -71,7 +71,11 @@ button.pauseButton:hover {
   }
 
   button.pauseButton {
-    margin: 40% 0 0 0.7%;
+    margin: 35% 0 0 0.7%;
+  }
+
+  button.pauseButton:hover {
+    font-size: 1.2rem;
   }
 
   p.pomoTime {
