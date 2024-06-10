@@ -8,8 +8,8 @@ import {
   ActiveContext,
   SecondsContext,
 } from "../App.js";
-
 import { colorTranslator } from "./config/components/ColorInput.jsx";
+import { sound } from "../Functions/sound.js";
 
 const useMyHook = (callBack, delay = 1000) => {
   const savedCallBack = useRef();
@@ -54,6 +54,7 @@ const usePomodoro = (
       }
 
       if (minutes === 0 && seconds === 0) {
+        sound.play();
         // Condition that is triggered at the end of a stage
 
         if (stagesCounter.current % 2 !== 0) {
@@ -80,7 +81,7 @@ const usePomodoro = (
         );
       }
     }
-  });
+  }, 3);
 };
 
 // Function that resets the temporizer and, simultaneously, the stage on the pomoNav
