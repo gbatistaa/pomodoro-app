@@ -3,5 +3,5 @@ import alarme from "../assets/sound/pomoAlarm.mp3";
 
 export const sound = new Howl({
   src: [alarme],
-  volume: 5,
+  volume: 1.0,
 });
