@@ -116,6 +116,10 @@ export default function PomoClock() {
   const { seconds, setSeconds } = useContext(SecondsContext);
   const { pomodoroActive, setPomodoroActive } = useContext(ActiveContext);
 
+  document.title = `${numberFormator(minutes)}:${numberFormator(
+    seconds
+  )} - PomoStudy`;
+
   usePomodoro(
     pomodoroActive,
     setMinutes,
