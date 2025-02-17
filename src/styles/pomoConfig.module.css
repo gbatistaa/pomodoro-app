@@ -8,7 +8,7 @@ div.configMenu {
   position: absolute;
   z-index: 6;
   height: 60%;
-  width: 38%;
+  width: 50%;
   border-radius: 1.7rem;
   background-color: #ffffff;
 }
@@ -74,17 +74,12 @@ button.applyButton.pink:hover {
   z-index: 5;
 }
 
-@media screen and (max-width: 480px) {
-  @media screen and (max-width: 480px) {
-    div.configMenu {
-      height: 50%;
-      width: 90%;
-      z-index: 11;
-      box-sizing: border-box;
-      position: fixed;
-    }
-
-
+@media screen and (max-width: 760px) {
+  div.configMenu {
+    height: 50%;
+    width: 80%;
+    z-index: 11;
+    box-sizing: border-box;
+    position: fixed;
   }
-
 }
